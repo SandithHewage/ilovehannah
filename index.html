@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>HANNAH I LOVE YOU</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    font-family: 'Comic Neue', cursive;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='28' font-size='28'>💖</text></svg>"), auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    position: fixed;
+    inset: 0;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  #title {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  #title h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 8vw, 5rem);
+    color: #ffb6c1;
+    text-shadow: 3px 3px 0 #ff6b9d, 6px 6px 0 rgba(0,0,0,0.1);
+    animation: titlePulse 2s ease-in-out infinite, titleWobble 3s ease-in-out infinite;
+  }
+
+  #title p {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #ffb6c1;
+    margin-top: 10px;
+    opacity: 0.9;
+    animation: subtitleFade 4s ease-in-out infinite;
+  }
+
+  @keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  @keyframes titleWobble {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(20deg); }
+  }
+
+  @keyframes subtitleFade {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  .emoji-burst {
+    position: fixed;
+    font-size: 2rem;
+    pointer-events: none;
+    z-index: 100;
+    animation: emojiFloat 2s ease-out forwards;
+  }
+
+  @keyframes emojiFloat {
+    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+    20% { transform: scale(1.5) rotate(30deg); opacity: 1; }
+    100% { transform: scale(0.5) translateY(-300px) rotate(360deg); opacity: 0; }
+  }
+
+  .love-message {
+    position: fixed;
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(0.85rem, 3.5vw, 2rem);
+    color: #ffb6c1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    pointer-events: none;
+    z-index: 99;
+    animation: messageAppear 3s ease-out forwards;
+    max-width: 90vw;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  @keyframes messageAppear {
+    0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+    15% { transform: scale(1.3) rotate(5deg); opacity: 1; }
+    30% { transform: scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: scale(0.8) translateY(-150px); opacity: 0; }
+  }
+
+  .random-image {
+    position: fixed;
+    width: min(65vw, 300px);
+    height: min(65vw, 300px);
+    border-radius: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    z-index: 50;
+    animation: imagePopIn 5s ease-in-out forwards;
+    object-fit: cover;
+  }
+
+  @keyframes imagePopIn {
+    0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+    10% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+    15% { transform: scale(1) rotate(-2deg); opacity: 1; }
+    80% { transform: scale(1) rotate(-2deg); opacity: 1; }
+    100% { transform: scale(0.5) rotate(15deg); opacity: 0; }
+  }
+
+  .floating-heart {
+    position: fixed;
+    font-size: 1.5rem;
+    pointer-events: none;
+    z-index: 5;
+    animation: floatUp linear forwards;
+    opacity: 0.6;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.6; }
+    50% { opacity: 0.4; }
+    100% { transform: translateY(-110vh) rotate(720deg) scale(0.3); opacity: 0; }
+  }
+
+  #tap-hint {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffb6c1;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    z-index: 10;
+    animation: bounce 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+  }
+
+  #combo-counter {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: #ffb6c1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    z-index: 200;
+    transition: transform 0.2s;
+  }
+
+  #combo-counter.bump {
+    transform: scale(1.3);
+  }
+
+  .screen-flash {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 105, 180, 0.3);
+    z-index: 1000;
+    pointer-events: none;
+    animation: flash 0.3s ease-out forwards;
+  }
+
+  @keyframes flash {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  #love-meter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 200;
+    color: #ffb6c1;
+    font-family: 'Pacifico', cursive;
+    font-size: 1rem;
+  }
+
+  #love-meter .bar {
+    width: 150px;
+    height: 15px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+  }
+
+  #love-meter .fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b9d, #ff0844);
+    border-radius: 10px;
+    transition: width 0.3s;
+    width: 0%;
+  }
+
+  .mega-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(3rem, 10vw, 6rem);
+    color: #ffb6c1;
+    text-shadow: 4px 4px 0 #ff0844;
+    z-index: 500;
+    pointer-events: none;
+    animation: megaPop 2s ease-out forwards;
+    white-space: nowrap;
+  }
+
+  @keyframes megaPop {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(-10deg); opacity: 0; }
+    20% { transform: translate(-50%, -50%) scale(1.3) rotate(5deg); opacity: 1; }
+    40% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(2) rotate(-5deg); opacity: 0; }
+  }
+
+  .sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 101;
+    animation: sparkleAnim 0.8s ease-out forwards;
+  }
+
+  @keyframes sparkleAnim {
+    0% { transform: scale(0); opacity: 1; }
+    50% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div id="title">
+  <h1>I Love You Hannah 💕</h1>
+  <p>tap anywhere to unleash the love 👇</p>
+</div>
+
+<div id="tap-hint">👆 TAP ME!! 👆</div>
+
+<div id="combo-counter">💖 x 0</div>
+
+<div id="love-meter">
+  <span>Love-O-Meter™</span>
+  <div class="bar"><div class="fill" id="love-fill"></div></div>
+</div>
+
+<script>
+  // ===== CONFIG =====
+  // Add your image filenames here! Drop them in an "images" folder.
+  const IMAGES = [
+    'IMG_4796.jpeg',
+    'IMG_7728.jpeg',
+    'IMG_3244.jpeg',
+    'IMG_2009.jpeg',
+    'IMG_1751.jpeg',
+    'IMG_3054.jpeg',
+    'IMG_9245.jpeg',
+    'IMG_2127.jpeg',
+    'IMG_3167.jpeg',
+    'IMG_2368.jpeg',
+    'IMG_9247.jpeg',
+    'IMG_0831.jpeg',
+    'IMG_2197.JPG',
+  ];
+
+  const EMOJIS = [
+    '💖', '💕', '💗', '💓', '💝', '💘', '❤️', '🥰', '😍', '😘',
+    '💋', '🌹', '✨', '💫', '⭐', '🦋', '🐻', '🧸', '🍓', '🌸',
+    '💐', '🎀', '🫶', '💞', '🩷', '🩵', '💜', '🤍', '🌈', '🎉'
+  ];
+
+  const MESSAGES = [
+    "Hannah you're my favorite person!!",
+    "ur so pretty it's actually unfair",
+    "I love you more than wifi",
+    "you're the reason I smile at my phone like an idiot",
+    "my heart goes brrrrr for you",
+    "Hannah > everything else",
+    "you make my brain go ✨ serotonin ✨",
+    "certified cutie patootie 💅",
+    "I'd share my food with you and that's REAL love",
+    "you're my favorite notification",
+    "plot twist: I love you",
+    "breaking news: Hannah is adorable",
+    "ur so cute it should be illegal",
+    "I love you to the moon and back and then to the moon again",
+    "my love language is annoying you",
+    "you're stuck with me forever sorry not sorry",
+    "God really said 'let me make someone perfect' and made you",
+    "you're my lobster 🦞",
+    "I'd let you have the last slice of pizza",
+    "I love you more than sleep and that's saying A LOT",
+    "relationship status: absolutely whipped for Hannah",
+    "you had me at hello... jk you had me way before that",
+    "my heart does a little kickflip when I see you",
+    "if loving you is wrong I don't wanna be right",
+    "you're the cheese to my macaroni 🧀",
+    "HANNAH HANNAH HANNAH HANNAH 💖💖💖",
+    "roses are red, violets are blue, I'm not good at poems, but I love you",
+    "I love you more than yesterday but less than tomorrow",
+    "you're my person 🫶",
+    "hannah appreciation hours: 24/7",
+    "fun fact: you're amazing",
+    "imagine being this cute... oh wait you don't have to imagine",
+    "you make every day feel like a weekend",
+    "PSA: I love Hannah",
+    "loading... ██████████ 100% love complete",
+    "error 404: reasons not to love hannah NOT FOUND",
+    "in a world full of 7 billion people, I'd find you every time",
+    "you're not just my girlfriend, you're my best friend who I also wanna smooch",
+    "I love you like kanye loves kanye",
+    "you're the avocado to my toast 🥑",
+  ];
+
+  const MEGA_MESSAGES = [
+    "I LOVE YOU!!!",
+    "HANNAH IS THE BEST!!!",
+    "MAXIMUM LOVE!!!",
+    "💖 OVERLOAD 💖",
+    "CUTENESS EXPLOSION",
+    "LOVE LEVEL: OVER 9000",
+    "HANNAH SUPREMACY",
+    "YOU ARE MY WORLD",
+  ];
+
+  const BACKGROUND_HEARTS = ['💕', '💗', '💖', '🩷', '🩵', '💜', '❤️'];
+
+  let tapCount = 0;
+  let comboTimer = null;
+  let loveLevel = 0;
+  const comboEl = document.getElementById('combo-counter');
+  const loveFill = document.getElementById('love-fill');
+
+  // ===== BACKGROUND HEARTS =====
+  function spawnBackgroundHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.textContent = BACKGROUND_HEARTS[Math.floor(Math.random() * BACKGROUND_HEARTS.length)];
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = '110vh';
+    heart.style.fontSize = (Math.random() * 2 + 0.8) + 'rem';
+    const duration = Math.random() * 8 + 6;
+    heart.style.animationDuration = duration + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), duration * 1000);
+  }
+  setInterval(spawnBackgroundHeart, 400);
+
+  // ===== RANDOM IMAGE POPUP =====
+  function popImage() {
+    if (IMAGES.length === 0) return;
+    const img = document.createElement('img');
+    img.className = 'random-image';
+    img.src = IMAGES[Math.floor(Math.random() * IMAGES.length)];
+    const imgSize = Math.min(window.innerWidth * 0.65, 300);
+    img.style.left = Math.random() * (window.innerWidth - imgSize - 20) + 10 + 'px';
+    img.style.top = Math.random() * (window.innerHeight - imgSize - 20) + 10 + 'px';
+    img.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+    document.body.appendChild(img);
+    setTimeout(() => img.remove(), 5000);
+  }
+  if (IMAGES.length > 0) {
+    setInterval(popImage, 4000);
+    setTimeout(popImage, 1000);
+  }
+
+  // ===== TAP HANDLER =====
+  function createSparkles(x, y, count) {
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      const angle = (Math.PI * 2 / count) * i;
+      const dist = Math.random() * 80 + 20;
+      s.style.left = (x + Math.cos(angle) * dist) + 'px';
+      s.style.top = (y + Math.sin(angle) * dist) + 'px';
+      s.style.background = ['#fff', '#ff6b9d', '#ffd700', '#ff69b4'][Math.floor(Math.random() * 4)];
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 800);
+    }
+  }
+
+  function burstEmojis(x, y) {
+    const count = Math.min(8 + Math.floor(tapCount / 5), 30);
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => {
+        const emoji = document.createElement('div');
+        emoji.className = 'emoji-burst';
+        emoji.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+        const offsetX = (Math.random() - 0.5) * 200;
+        const offsetY = (Math.random() - 0.5) * 200;
+        emoji.style.left = (x + offsetX) + 'px';
+        emoji.style.top = (y + offsetY) + 'px';
+        emoji.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+        document.body.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 2000);
+      }, i * 30);
+    }
+  }
+
+  function showMessage(x, y) {
+    const msg = document.createElement('div');
+    msg.className = 'love-message';
+    msg.textContent = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
+    msg.style.left = Math.max(10, Math.min(x - 100, window.innerWidth - 300)) + 'px';
+    msg.style.top = y + 'px';
+    msg.style.color = `hsl(${Math.random() * 20 + 340}, 100%, ${Math.random() * 10 + 82}%)`;
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 3000);
+  }
+
+  function screenFlash() {
+    const flash = document.createElement('div');
+    flash.className = 'screen-flash';
+    document.body.appendChild(flash);
+    setTimeout(() => flash.remove(), 300);
+  }
+
+  function megaMessage() {
+    const mega = document.createElement('div');
+    mega.className = 'mega-text';
+    mega.textContent = MEGA_MESSAGES[Math.floor(Math.random() * MEGA_MESSAGES.length)];
+    document.body.appendChild(mega);
+    setTimeout(() => mega.remove(), 2000);
+  }
+
+  function updateCombo() {
+    tapCount++;
+    comboEl.textContent = `💖 x ${tapCount}`;
+    comboEl.classList.add('bump');
+    setTimeout(() => comboEl.classList.remove('bump'), 200);
+
+    // Love meter
+    loveLevel = Math.min(100, loveLevel + 2);
+    loveFill.style.width = loveLevel + '%';
+
+    // Combo milestones
+    if (tapCount % 10 === 0) {
+      megaMessage();
+      screenFlash();
+    }
+    if (tapCount === 50) {
+      megaMessage();
+      document.body.style.animation = 'none';
+      document.body.style.background = 'linear-gradient(135deg, #ff0844, #ffb199, #ff6b9d, #c471f5)';
+      document.body.style.backgroundSize = '400% 400%';
+      setTimeout(() => {
+        document.body.style.animation = 'gradientShift 4s ease infinite';
+      }, 50);
+    }
+    if (tapCount === 100) {
+      // ULTRA MODE
+      document.title = '💖💖💖 HANNAH I LOVE YOU 💖💖💖';
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          burstEmojis(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+        }, i * 50);
+      }
+    }
+
+    clearTimeout(comboTimer);
+    comboTimer = setTimeout(() => {
+      tapCount = 0;
+      comboEl.textContent = '💖 x 0';
+      loveLevel = Math.max(0, loveLevel - 10);
+      loveFill.style.width = loveLevel + '%';
+    }, 3000);
+  }
+
+  function handleTap(x, y) {
+    burstEmojis(x, y);
+    createSparkles(x, y, 12);
+    updateCombo();
+
+    if (tapCount % 2 === 0 || Math.random() > 0.5) {
+      showMessage(x, y);
+    }
+
+    const hint = document.getElementById('tap-hint');
+    if (hint) hint.style.display = 'none';
+  }
+
+  // Touch support (primary on mobile)
+  document.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    for (const touch of e.changedTouches) {
+      handleTap(touch.clientX, touch.clientY);
+    }
+  }, { passive: false });
+
+  // Click fallback for desktop
+  document.addEventListener('click', (e) => {
+    handleTap(e.clientX, e.clientY);
+  });
+
+  // ===== KONAMI CODE: up up down down left right left right b a =====
+  const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+  let konamiIndex = 0;
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === konamiCode[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === konamiCode.length) {
+        konamiIndex = 0;
+        // ULTRA SECRET MODE
+        for (let i = 0; i < 200; i++) {
+          setTimeout(() => {
+            burstEmojis(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+          }, i * 20);
+        }
+        const mega = document.createElement('div');
+        mega.className = 'mega-text';
+        mega.textContent = '🔓 SECRET: INFINITE LOVE UNLOCKED';
+        document.body.appendChild(mega);
+        setTimeout(() => mega.remove(), 3000);
+      }
+    } else {
+      konamiIndex = 0;
+    }
+  });
+
+  // ===== AUTO LOVE RAIN =====
+  setInterval(() => {
+    if (Math.random() > 0.7 && MESSAGES.length > 0) {
+      const msg = document.createElement('div');
+      msg.className = 'love-message';
+      msg.textContent = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
+      msg.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+      msg.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+      msg.style.color = `hsl(${Math.random() * 20 + 340}, 100%, ${Math.random() * 10 + 82}%)`;
+      msg.style.fontSize = '1rem';
+      msg.style.opacity = '0.7';
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 3000);
+    }
+  }, 5000);
+
+  // ===== TITLE EASTER EGG =====
+  const titles = [
+    'I Love You Hannah 💕',
+    'Hannah Is The Best 💖',
+    'ur so cute omg 🥰',
+    'hannah appreciation page 🌹',
+    'certified soulmate zone 💫',
+    'no cap I love you fr fr 💗',
+  ];
+  let titleIndex = 0;
+  setInterval(() => {
+    titleIndex = (titleIndex + 1) % titles.length;
+    document.getElementById('title').querySelector('h1').textContent = titles[titleIndex];
+  }, 6000);
+
+  // Love meter slowly decays
+  setInterval(() => {
+    if (loveLevel > 0) {
+      loveLevel = Math.max(0, loveLevel - 0.5);
+      loveFill.style.width = loveLevel + '%';
+    }
+  }, 500);
+</script>
+</body>
+</html>
