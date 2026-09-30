@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>HANNAH I LOVE YOU</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@400;700&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -32,6 +32,7 @@
     100% { background-position: 0% 50%; }
   }
 
+  /* ===== TITLE ===== */
   #title {
     position: fixed;
     top: 50%;
@@ -40,32 +41,30 @@
     text-align: center;
     z-index: 10;
     pointer-events: none;
+    width: 90vw;
   }
 
   #title h1 {
     font-family: 'Pacifico', cursive;
-    font-size: clamp(2rem, 8vw, 5rem);
+    font-size: clamp(1.6rem, 7vw, 4.5rem);
     color: #ffb6c1;
-    text-shadow: 3px 3px 0 #ff6b9d, 6px 6px 0 rgba(0,0,0,0.1);
-    animation: titlePulse 2s ease-in-out infinite, titleWobble 3s ease-in-out infinite;
+    text-shadow: 2px 2px 0 #ff6b9d, 4px 4px 0 rgba(0,0,0,0.1);
+    animation: titlePulse 2s ease-in-out infinite;
+    line-height: 1.2;
   }
 
   #title p {
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(0.8rem, 2.5vw, 1.3rem);
     color: #ffb6c1;
-    margin-top: 10px;
+    margin-top: 8px;
     opacity: 0.9;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     animation: subtitleFade 4s ease-in-out infinite;
   }
 
   @keyframes titlePulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-
-  @keyframes titleWobble {
-    0%, 100% { filter: hue-rotate(0deg); }
-    50% { filter: hue-rotate(20deg); }
+    50% { transform: scale(1.04); }
   }
 
   @keyframes subtitleFade {
@@ -73,83 +72,87 @@
     50% { opacity: 1; }
   }
 
+  /* ===== EMOJI BURST ===== */
   .emoji-burst {
     position: fixed;
-    font-size: 2rem;
     pointer-events: none;
     z-index: 100;
-    animation: emojiFloat 2s ease-out forwards;
+    animation: emojiFloat 1.8s ease-out forwards;
   }
 
   @keyframes emojiFloat {
     0% { transform: scale(0) rotate(0deg); opacity: 1; }
-    20% { transform: scale(1.5) rotate(30deg); opacity: 1; }
-    100% { transform: scale(0.5) translateY(-300px) rotate(360deg); opacity: 0; }
+    20% { transform: scale(1.4) rotate(30deg); opacity: 1; }
+    100% { transform: scale(0.4) translateY(-250px) rotate(360deg); opacity: 0; }
   }
 
+  /* ===== LOVE MESSAGES ===== */
   .love-message {
     position: fixed;
     font-family: 'Pacifico', cursive;
-    font-size: clamp(0.85rem, 3.5vw, 2rem);
+    font-size: clamp(0.75rem, 2.8vw, 1.6rem);
     color: #ffb6c1;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     pointer-events: none;
     z-index: 99;
     animation: messageAppear 3s ease-out forwards;
-    max-width: 90vw;
+    max-width: 80vw;
     word-wrap: break-word;
     white-space: normal;
+    text-align: center;
   }
 
   @keyframes messageAppear {
     0% { transform: scale(0) rotate(-10deg); opacity: 0; }
-    15% { transform: scale(1.3) rotate(5deg); opacity: 1; }
+    15% { transform: scale(1.2) rotate(3deg); opacity: 1; }
     30% { transform: scale(1) rotate(0deg); opacity: 1; }
-    100% { transform: scale(0.8) translateY(-150px); opacity: 0; }
+    100% { transform: scale(0.8) translateY(-120px); opacity: 0; }
   }
 
+  /* ===== IMAGES ===== */
   .random-image {
     position: fixed;
-    width: min(65vw, 300px);
-    height: min(65vw, 300px);
-    border-radius: 20px;
-    border: 4px solid #fff;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    width: min(55vw, 280px);
+    height: min(55vw, 280px);
+    border-radius: 18px;
+    border: 3px solid rgba(255,255,255,0.8);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
     z-index: 50;
     animation: imagePopIn 5s ease-in-out forwards;
     object-fit: cover;
   }
 
   @keyframes imagePopIn {
-    0% { transform: scale(0) rotate(-20deg); opacity: 0; }
-    10% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+    0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+    10% { transform: scale(1.08) rotate(3deg); opacity: 1; }
     15% { transform: scale(1) rotate(-2deg); opacity: 1; }
     80% { transform: scale(1) rotate(-2deg); opacity: 1; }
-    100% { transform: scale(0.5) rotate(15deg); opacity: 0; }
+    100% { transform: scale(0.5) rotate(10deg); opacity: 0; }
   }
 
+  /* ===== FLOATING HEARTS ===== */
   .floating-heart {
     position: fixed;
-    font-size: 1.5rem;
     pointer-events: none;
     z-index: 5;
     animation: floatUp linear forwards;
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   @keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.6; }
-    50% { opacity: 0.4; }
-    100% { transform: translateY(-110vh) rotate(720deg) scale(0.3); opacity: 0; }
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.5; }
+    100% { transform: translateY(-110vh) rotate(720deg) scale(0.2); opacity: 0; }
   }
 
+  /* ===== HUD ===== */
   #tap-hint {
     position: fixed;
-    bottom: 30px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     color: #ffb6c1;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     opacity: 0.8;
     z-index: 10;
     animation: bounce 2s ease-in-out infinite;
@@ -158,29 +161,27 @@
 
   @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-10px); }
+    50% { transform: translateX(-50%) translateY(-8px); }
   }
 
   #combo-counter {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     font-family: 'Pacifico', cursive;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     color: #ffb6c1;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     z-index: 200;
     transition: transform 0.2s;
   }
 
-  #combo-counter.bump {
-    transform: scale(1.3);
-  }
+  #combo-counter.bump { transform: scale(1.3); }
 
   .screen-flash {
     position: fixed;
     inset: 0;
-    background: rgba(255, 105, 180, 0.3);
+    background: rgba(255, 182, 193, 0.35);
     z-index: 1000;
     pointer-events: none;
     animation: flash 0.3s ease-out forwards;
@@ -193,26 +194,27 @@
 
   #love-meter {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 15px;
+    left: 15px;
     z-index: 200;
     color: #ffb6c1;
     font-family: 'Pacifico', cursive;
-    font-size: 1rem;
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 
   #love-meter .bar {
-    width: 150px;
-    height: 15px;
-    background: rgba(255,255,255,0.3);
+    width: clamp(100px, 25vw, 150px);
+    height: 12px;
+    background: rgba(255,255,255,0.25);
     border-radius: 10px;
     overflow: hidden;
-    margin-top: 5px;
+    margin-top: 4px;
   }
 
   #love-meter .fill {
     height: 100%;
-    background: linear-gradient(90deg, #ff6b9d, #ff0844);
+    background: linear-gradient(90deg, #ffb6c1, #ff69b4);
     border-radius: 10px;
     transition: width 0.3s;
     width: 0%;
@@ -224,38 +226,312 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     font-family: 'Pacifico', cursive;
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(1.8rem, 8vw, 5rem);
     color: #ffb6c1;
-    text-shadow: 4px 4px 0 #ff0844;
+    text-shadow: 3px 3px 0 #ff6b9d, 5px 5px 0 rgba(0,0,0,0.15);
     z-index: 500;
     pointer-events: none;
     animation: megaPop 2s ease-out forwards;
-    white-space: nowrap;
+    text-align: center;
+    width: 90vw;
+    line-height: 1.2;
   }
 
   @keyframes megaPop {
     0% { transform: translate(-50%, -50%) scale(0) rotate(-10deg); opacity: 0; }
-    20% { transform: translate(-50%, -50%) scale(1.3) rotate(5deg); opacity: 1; }
+    20% { transform: translate(-50%, -50%) scale(1.2) rotate(3deg); opacity: 1; }
     40% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
     80% { opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(2) rotate(-5deg); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1.8) rotate(-3deg); opacity: 0; }
   }
 
   .sparkle {
     position: fixed;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     background: #fff;
     border-radius: 50%;
     pointer-events: none;
     z-index: 101;
-    animation: sparkleAnim 0.8s ease-out forwards;
+    animation: sparkleAnim 0.7s ease-out forwards;
   }
 
   @keyframes sparkleAnim {
     0% { transform: scale(0); opacity: 1; }
-    50% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 1; }
     100% { transform: scale(0); opacity: 0; }
+  }
+
+  /* ===== MENU BUTTON ===== */
+  #menu-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #ffb6c1;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 300;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  }
+
+  #menu-btn:active { transform: scale(0.9); }
+
+  /* ===== GAME MODAL ===== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+    padding: 15px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal {
+    background: linear-gradient(135deg, #fff0f3, #ffe0e6);
+    border-radius: 24px;
+    padding: clamp(20px, 4vw, 35px);
+    max-width: 400px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    position: relative;
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes modalPop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal h2 {
+    font-family: 'Pacifico', cursive;
+    color: #ff6b9d;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .modal p, .modal label {
+    font-family: 'Comic Neue', cursive;
+    color: #8b5a6b;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    line-height: 1.5;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ff6b9d;
+    padding: 5px;
+  }
+
+  .game-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ff9a9e, #fbc2eb);
+    color: #fff;
+    font-family: 'Comic Neue', cursive;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 12px rgba(255,105,180,0.3);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  }
+
+  .game-btn:active { transform: scale(0.96); }
+
+  .game-btn.secondary {
+    background: rgba(255,182,193,0.3);
+    color: #ff6b9d;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  /* ===== CATCH GAME ===== */
+  .catch-heart {
+    position: fixed;
+    font-size: clamp(2rem, 6vw, 3rem);
+    z-index: 650;
+    cursor: pointer;
+    animation: heartDrop linear forwards;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+
+  @keyframes heartDrop {
+    from { transform: translateY(-60px); }
+    to { transform: translateY(calc(100vh + 60px)); }
+  }
+
+  .catch-score {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: #ffb6c1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    z-index: 660;
+    pointer-events: none;
+    text-align: center;
+    width: 90vw;
+  }
+
+  /* ===== PUZZLE ===== */
+  .puzzle-grid {
+    display: grid;
+    gap: 6px;
+    margin: 15px auto;
+    max-width: 280px;
+  }
+
+  .puzzle-tile {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff9a9e, #fbc2eb);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s, opacity 0.3s;
+  }
+
+  .puzzle-tile.flipped {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    transform: scale(1.05);
+  }
+
+  .puzzle-tile.matched {
+    background: linear-gradient(135deg, #96fbc4, #f9f586);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  /* ===== LOVE LETTER ===== */
+  .love-letter {
+    background: #fffaf0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    color: #8b5a6b;
+    line-height: 1.8;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,182,193,0.3);
+  }
+
+  /* ===== QUIZ ===== */
+  .quiz-option {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    margin: 6px 0;
+    border: 2px solid rgba(255,105,180,0.3);
+    border-radius: 14px;
+    background: #fff;
+    color: #8b5a6b;
+    font-family: 'Comic Neue', cursive;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+  }
+
+  .quiz-option:active { transform: scale(0.97); }
+  .quiz-option.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+  .quiz-option.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+  /* ===== SHAKE DETECTOR ===== */
+  .shake-prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    color: #ffb6c1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    z-index: 400;
+    pointer-events: none;
+    text-align: center;
+    width: 85vw;
+    animation: shakeHint 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shakeHint {
+    0%, 100% { transform: translate(-50%, -50%) rotate(-2deg); }
+    50% { transform: translate(-50%, -50%) rotate(2deg); }
+  }
+
+  /* ===== WHEEL ===== */
+  .wheel-container {
+    position: relative;
+    width: min(260px, 70vw);
+    height: min(260px, 70vw);
+    margin: 15px auto;
+  }
+
+  .wheel-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: transform 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+  }
+
+  .wheel-pointer {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+    z-index: 2;
+  }
+
+  .wheel-result {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #ff6b9d;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    margin-top: 12px;
+    min-height: 2em;
   }
 </style>
 </head>
@@ -267,7 +543,6 @@
 </div>
 
 <div id="tap-hint">👆 TAP ME!! 👆</div>
-
 <div id="combo-counter">💖 x 0</div>
 
 <div id="love-meter">
@@ -275,317 +550,762 @@
   <div class="bar"><div class="fill" id="love-fill"></div></div>
 </div>
 
+<div id="menu-btn" onclick="openMenu()">🎮</div>
+
 <script>
-  // ===== CONFIG =====
-  // Add your image filenames here! Drop them in an "images" folder.
-  const IMAGES = [
-    'IMG_4796.jpeg',
-    'IMG_7728.jpeg',
-    'IMG_3244.jpeg',
-    'IMG_2009.jpeg',
-    'IMG_1751.jpeg',
-    'IMG_3054.jpeg',
-    'IMG_9245.jpeg',
-    'IMG_2127.jpeg',
-    'IMG_3167.jpeg',
-    'IMG_2368.jpeg',
-    'IMG_9247.jpeg',
-    'IMG_0831.jpeg',
-    'IMG_2197.JPG',
-  ];
+// ===== CONFIG =====
+const IMAGES = [
+  'IMG_4796.jpeg','IMG_7728.jpeg','IMG_3244.jpeg','IMG_2009.jpeg',
+  'IMG_1751.jpeg','IMG_3054.jpeg','IMG_9245.jpeg','IMG_2127.jpeg',
+  'IMG_3167.jpeg','IMG_2368.jpeg','IMG_9247.jpeg','IMG_0831.jpeg','IMG_2197.JPG',
+];
 
-  const EMOJIS = [
-    '💖', '💕', '💗', '💓', '💝', '💘', '❤️', '🥰', '😍', '😘',
-    '💋', '🌹', '✨', '💫', '⭐', '🦋', '🐻', '🧸', '🍓', '🌸',
-    '💐', '🎀', '🫶', '💞', '🩷', '🩵', '💜', '🤍', '🌈', '🎉'
-  ];
+const EMOJIS = [
+  '💖','💕','💗','💓','💝','💘','❤️','🥰','😍','😘',
+  '💋','🌹','✨','💫','⭐','🦋','🐻','🧸','🍓','🌸',
+  '💐','🎀','🫶','💞','🩷','🩵','💜','🤍','🌈','🎉'
+];
 
-  const MESSAGES = [
-    "Hannah you're my favorite person!!",
-    "ur so pretty it's actually unfair",
-    "I love you more than wifi",
-    "you're the reason I smile at my phone like an idiot",
-    "my heart goes brrrrr for you",
-    "Hannah > everything else",
-    "you make my brain go ✨ serotonin ✨",
-    "certified cutie patootie 💅",
-    "I'd share my food with you and that's REAL love",
-    "you're my favorite notification",
-    "plot twist: I love you",
-    "breaking news: Hannah is adorable",
-    "ur so cute it should be illegal",
-    "I love you to the moon and back and then to the moon again",
-    "my love language is annoying you",
-    "you're stuck with me forever sorry not sorry",
-    "God really said 'let me make someone perfect' and made you",
-    "you're my lobster 🦞",
-    "I'd let you have the last slice of pizza",
-    "I love you more than sleep and that's saying A LOT",
-    "relationship status: absolutely whipped for Hannah",
-    "you had me at hello... jk you had me way before that",
-    "my heart does a little kickflip when I see you",
-    "if loving you is wrong I don't wanna be right",
-    "you're the cheese to my macaroni 🧀",
-    "HANNAH HANNAH HANNAH HANNAH 💖💖💖",
-    "roses are red, violets are blue, I'm not good at poems, but I love you",
-    "I love you more than yesterday but less than tomorrow",
-    "you're my person 🫶",
-    "hannah appreciation hours: 24/7",
-    "fun fact: you're amazing",
-    "imagine being this cute... oh wait you don't have to imagine",
-    "you make every day feel like a weekend",
-    "PSA: I love Hannah",
-    "loading... ██████████ 100% love complete",
-    "error 404: reasons not to love hannah NOT FOUND",
-    "in a world full of 7 billion people, I'd find you every time",
-    "you're not just my girlfriend, you're my best friend who I also wanna smooch",
-    "I love you like kanye loves kanye",
-    "you're the avocado to my toast 🥑",
-  ];
+const MESSAGES = [
+  "Hannah you're my favorite person!!",
+  "ur so pretty it's actually unfair",
+  "I love you more than wifi",
+  "you're the reason I smile at my phone",
+  "my heart goes brrrrr for you",
+  "Hannah > everything else",
+  "you make my brain go serotonin",
+  "certified cutie patootie",
+  "I'd share my food with you",
+  "you're my favorite notification",
+  "plot twist: I love you",
+  "breaking news: Hannah is adorable",
+  "ur so cute it should be illegal",
+  "I love you to the moon and back",
+  "my love language is annoying you",
+  "you're stuck with me forever",
+  "God made someone perfect: you",
+  "you're my lobster",
+  "I'd give you the last pizza slice",
+  "I love you more than sleep",
+  "status: whipped for Hannah",
+  "you had me before hello",
+  "my heart does kickflips for you",
+  "if loving you is wrong I'm fine with it",
+  "you're the cheese to my mac",
+  "HANNAH HANNAH HANNAH",
+  "roses are red, I love you",
+  "you're my person",
+  "hannah appreciation: 24/7",
+  "fun fact: you're amazing",
+  "you make every day a weekend",
+  "PSA: I love Hannah",
+  "loading love... 100% complete",
+  "error 404: flaws NOT FOUND",
+  "I'd find you in any universe",
+  "bestfriend + smooch partner",
+  "I love you like kanye loves kanye",
+  "you're the avocado to my toast",
+];
 
-  const MEGA_MESSAGES = [
-    "I LOVE YOU!!!",
-    "HANNAH IS THE BEST!!!",
-    "MAXIMUM LOVE!!!",
-    "💖 OVERLOAD 💖",
-    "CUTENESS EXPLOSION",
-    "LOVE LEVEL: OVER 9000",
-    "HANNAH SUPREMACY",
-    "YOU ARE MY WORLD",
-  ];
+const MEGA_MESSAGES = [
+  "I LOVE YOU!!!","HANNAH IS THE BEST!!!","MAXIMUM LOVE!!!",
+  "LOVE OVERLOAD","CUTENESS EXPLOSION","LOVE: OVER 9000",
+  "HANNAH SUPREMACY","YOU ARE MY WORLD",
+];
 
-  const BACKGROUND_HEARTS = ['💕', '💗', '💖', '🩷', '🩵', '💜', '❤️'];
+const BACKGROUND_HEARTS = ['💕','💗','💖','🩷','🩵','💜','❤️'];
 
-  let tapCount = 0;
-  let comboTimer = null;
-  let loveLevel = 0;
-  const comboEl = document.getElementById('combo-counter');
-  const loveFill = document.getElementById('love-fill');
+const LOVE_LETTERS = [
+  "Dear Hannah,\n\nI just wanted you to know that you are the most incredible, beautiful, amazing human being I have ever met. Every single day with you feels like a gift. You make me laugh when I want to cry, you make me smile when I don't want to, and you make my heart do that stupid flutter thing that I used to think only happened in movies.\n\nForever and always yours,\nYour biggest fan 💕",
+  "Hey cutie,\n\nRemember that time you smiled at me and I forgot how to breathe? Yeah that still happens. Every. Single. Time. I don't think you understand how much power you have over me and honestly that's terrifying but also the best thing ever.\n\nI love you more than words,\nYour person 💖",
+  "To the prettiest girl in the world,\n\nI wrote you this love letter because a text just wasn't enough. You deserve handwritten notes and flowers every day but since this is a website you get digital love instead. Just know that behind every emoji is a real feeling and behind every silly joke is a boy who is absolutely head over heels for you.\n\nAll my love (it's a lot),\nMe 🌹",
+];
 
-  // ===== BACKGROUND HEARTS =====
-  function spawnBackgroundHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'floating-heart';
-    heart.textContent = BACKGROUND_HEARTS[Math.floor(Math.random() * BACKGROUND_HEARTS.length)];
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.top = '110vh';
-    heart.style.fontSize = (Math.random() * 2 + 0.8) + 'rem';
-    const duration = Math.random() * 8 + 6;
-    heart.style.animationDuration = duration + 's';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), duration * 1000);
+let tapCount = 0;
+let comboTimer = null;
+let loveLevel = 0;
+let activeModal = null;
+let catchGame = null;
+
+const comboEl = document.getElementById('combo-counter');
+const loveFill = document.getElementById('love-fill');
+const W = () => window.innerWidth;
+const H = () => window.innerHeight;
+
+// ===== BACKGROUND HEARTS =====
+function spawnBackgroundHeart() {
+  const h = document.createElement('div');
+  h.className = 'floating-heart';
+  h.textContent = BACKGROUND_HEARTS[Math.floor(Math.random() * BACKGROUND_HEARTS.length)];
+  h.style.left = Math.random() * 100 + 'vw';
+  h.style.top = '110vh';
+  h.style.fontSize = (Math.random() * 1.5 + 0.6) + 'rem';
+  const dur = Math.random() * 8 + 6;
+  h.style.animationDuration = dur + 's';
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), dur * 1000);
+}
+setInterval(spawnBackgroundHeart, 500);
+
+// ===== RANDOM IMAGE POPUP =====
+function popImage() {
+  if (!IMAGES.length || activeModal) return;
+  const img = document.createElement('img');
+  img.className = 'random-image';
+  img.src = IMAGES[Math.floor(Math.random() * IMAGES.length)];
+  const sz = Math.min(W() * 0.55, 280);
+  img.style.left = Math.random() * (W() - sz - 20) + 10 + 'px';
+  img.style.top = Math.random() * (H() - sz - 20) + 10 + 'px';
+  document.body.appendChild(img);
+  setTimeout(() => img.remove(), 5000);
+}
+if (IMAGES.length) {
+  setInterval(popImage, 4500);
+  setTimeout(popImage, 1500);
+}
+
+// ===== EFFECTS =====
+function createSparkles(x, y, count) {
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    const angle = (Math.PI * 2 / count) * i;
+    const dist = Math.random() * 60 + 15;
+    s.style.left = (x + Math.cos(angle) * dist) + 'px';
+    s.style.top = (y + Math.sin(angle) * dist) + 'px';
+    s.style.background = ['#fff','#ffb6c1','#ffd700','#ff69b4'][Math.floor(Math.random() * 4)];
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 700);
   }
-  setInterval(spawnBackgroundHeart, 400);
+}
 
-  // ===== RANDOM IMAGE POPUP =====
-  function popImage() {
-    if (IMAGES.length === 0) return;
-    const img = document.createElement('img');
-    img.className = 'random-image';
-    img.src = IMAGES[Math.floor(Math.random() * IMAGES.length)];
-    const imgSize = Math.min(window.innerWidth * 0.65, 300);
-    img.style.left = Math.random() * (window.innerWidth - imgSize - 20) + 10 + 'px';
-    img.style.top = Math.random() * (window.innerHeight - imgSize - 20) + 10 + 'px';
-    img.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
-    document.body.appendChild(img);
-    setTimeout(() => img.remove(), 5000);
+function burstEmojis(x, y) {
+  const count = Math.min(6 + Math.floor(tapCount / 5), 20);
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const e = document.createElement('div');
+      e.className = 'emoji-burst';
+      e.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+      e.style.left = (x + (Math.random() - 0.5) * 160) + 'px';
+      e.style.top = (y + (Math.random() - 0.5) * 160) + 'px';
+      e.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+      document.body.appendChild(e);
+      setTimeout(() => e.remove(), 1800);
+    }, i * 25);
   }
-  if (IMAGES.length > 0) {
-    setInterval(popImage, 4000);
-    setTimeout(popImage, 1000);
-  }
+}
 
-  // ===== TAP HANDLER =====
-  function createSparkles(x, y, count) {
-    for (let i = 0; i < count; i++) {
-      const s = document.createElement('div');
-      s.className = 'sparkle';
-      const angle = (Math.PI * 2 / count) * i;
-      const dist = Math.random() * 80 + 20;
-      s.style.left = (x + Math.cos(angle) * dist) + 'px';
-      s.style.top = (y + Math.sin(angle) * dist) + 'px';
-      s.style.background = ['#fff', '#ff6b9d', '#ffd700', '#ff69b4'][Math.floor(Math.random() * 4)];
-      document.body.appendChild(s);
-      setTimeout(() => s.remove(), 800);
+function showMessage(x, y) {
+  const msg = document.createElement('div');
+  msg.className = 'love-message';
+  msg.textContent = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
+  const maxLeft = W() - 20;
+  msg.style.left = Math.max(10, Math.min(x - 80, maxLeft - 200)) + 'px';
+  msg.style.top = Math.min(y, H() - 80) + 'px';
+  msg.style.color = `hsl(${Math.random() * 20 + 340}, 100%, ${Math.random() * 10 + 82}%)`;
+  document.body.appendChild(msg);
+  setTimeout(() => msg.remove(), 3000);
+}
+
+function screenFlash() {
+  const f = document.createElement('div');
+  f.className = 'screen-flash';
+  document.body.appendChild(f);
+  setTimeout(() => f.remove(), 300);
+}
+
+function megaMessage(text) {
+  const m = document.createElement('div');
+  m.className = 'mega-text';
+  m.textContent = text || MEGA_MESSAGES[Math.floor(Math.random() * MEGA_MESSAGES.length)];
+  document.body.appendChild(m);
+  setTimeout(() => m.remove(), 2000);
+}
+
+function updateCombo() {
+  tapCount++;
+  comboEl.textContent = `💖 x ${tapCount}`;
+  comboEl.classList.add('bump');
+  setTimeout(() => comboEl.classList.remove('bump'), 200);
+
+  loveLevel = Math.min(100, loveLevel + 2);
+  loveFill.style.width = loveLevel + '%';
+
+  if (tapCount % 10 === 0) { megaMessage(); screenFlash(); }
+  if (tapCount === 50) {
+    megaMessage("LOVE MODE ACTIVATED");
+    document.body.style.animation = 'none';
+    document.body.style.background = 'linear-gradient(135deg, #ff6b9d, #ffb199, #fbc2eb, #c471f5)';
+    document.body.style.backgroundSize = '400% 400%';
+    setTimeout(() => { document.body.style.animation = 'gradientShift 4s ease infinite'; }, 50);
+  }
+  if (tapCount === 100) {
+    document.title = '💖💖💖 HANNAH I LOVE YOU 💖💖💖';
+    megaMessage("ULTRA LOVE UNLOCKED");
+    for (let i = 0; i < 40; i++) {
+      setTimeout(() => burstEmojis(Math.random() * W(), Math.random() * H()), i * 40);
     }
   }
 
-  function burstEmojis(x, y) {
-    const count = Math.min(8 + Math.floor(tapCount / 5), 30);
-    for (let i = 0; i < count; i++) {
-      setTimeout(() => {
-        const emoji = document.createElement('div');
-        emoji.className = 'emoji-burst';
-        emoji.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
-        const offsetX = (Math.random() - 0.5) * 200;
-        const offsetY = (Math.random() - 0.5) * 200;
-        emoji.style.left = (x + offsetX) + 'px';
-        emoji.style.top = (y + offsetY) + 'px';
-        emoji.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
-        document.body.appendChild(emoji);
-        setTimeout(() => emoji.remove(), 2000);
-      }, i * 30);
-    }
-  }
+  clearTimeout(comboTimer);
+  comboTimer = setTimeout(() => {
+    tapCount = 0;
+    comboEl.textContent = '💖 x 0';
+    loveLevel = Math.max(0, loveLevel - 10);
+    loveFill.style.width = loveLevel + '%';
+  }, 3000);
+}
 
-  function showMessage(x, y) {
+// ===== TAP HANDLER =====
+function handleTap(x, y) {
+  if (activeModal) return;
+  burstEmojis(x, y);
+  createSparkles(x, y, 10);
+  updateCombo();
+  if (tapCount % 2 === 0 || Math.random() > 0.5) showMessage(x, y);
+  const hint = document.getElementById('tap-hint');
+  if (hint) hint.style.display = 'none';
+}
+
+let touchHandled = false;
+document.addEventListener('touchstart', (e) => {
+  if (e.target.closest('.modal-overlay, #menu-btn, .catch-heart')) return;
+  e.preventDefault();
+  touchHandled = true;
+  for (const t of e.changedTouches) handleTap(t.clientX, t.clientY);
+}, { passive: false });
+
+document.addEventListener('click', (e) => {
+  if (touchHandled) { touchHandled = false; return; }
+  if (e.target.closest('.modal-overlay, #menu-btn, .catch-heart')) return;
+  handleTap(e.clientX, e.clientY);
+});
+
+// ===== AUTO LOVE RAIN =====
+setInterval(() => {
+  if (Math.random() > 0.7 && !activeModal) {
     const msg = document.createElement('div');
     msg.className = 'love-message';
     msg.textContent = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
-    msg.style.left = Math.max(10, Math.min(x - 100, window.innerWidth - 300)) + 'px';
-    msg.style.top = y + 'px';
+    msg.style.left = Math.random() * (W() - 150) + 'px';
+    msg.style.top = Math.random() * (H() - 80) + 'px';
     msg.style.color = `hsl(${Math.random() * 20 + 340}, 100%, ${Math.random() * 10 + 82}%)`;
+    msg.style.fontSize = clampPx(0.75, 2, 0.9);
+    msg.style.opacity = '0.7';
     document.body.appendChild(msg);
     setTimeout(() => msg.remove(), 3000);
   }
+}, 5000);
 
-  function screenFlash() {
-    const flash = document.createElement('div');
-    flash.className = 'screen-flash';
-    document.body.appendChild(flash);
-    setTimeout(() => flash.remove(), 300);
-  }
+function clampPx(min, vw, max) {
+  const val = Math.min(Math.max(W() * vw / 100, min * 16), max * 16);
+  return val + 'px';
+}
 
-  function megaMessage() {
-    const mega = document.createElement('div');
-    mega.className = 'mega-text';
-    mega.textContent = MEGA_MESSAGES[Math.floor(Math.random() * MEGA_MESSAGES.length)];
-    document.body.appendChild(mega);
-    setTimeout(() => mega.remove(), 2000);
-  }
+// ===== ROTATING TITLE =====
+const titles = [
+  'I Love You Hannah 💕','Hannah Is The Best 💖','ur so cute omg 🥰',
+  'hannah appreciation page 🌹','certified soulmate zone 💫','I love you fr fr 💗',
+];
+let titleIdx = 0;
+setInterval(() => {
+  titleIdx = (titleIdx + 1) % titles.length;
+  document.querySelector('#title h1').textContent = titles[titleIdx];
+}, 6000);
 
-  function updateCombo() {
-    tapCount++;
-    comboEl.textContent = `💖 x ${tapCount}`;
-    comboEl.classList.add('bump');
-    setTimeout(() => comboEl.classList.remove('bump'), 200);
+// Love meter decay
+setInterval(() => {
+  if (loveLevel > 0) { loveLevel = Math.max(0, loveLevel - 0.5); loveFill.style.width = loveLevel + '%'; }
+}, 500);
 
-    // Love meter
-    loveLevel = Math.min(100, loveLevel + 2);
-    loveFill.style.width = loveLevel + '%';
+// ===== MODAL SYSTEM =====
+function openModal(html) {
+  closeModal();
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `<div class="modal">${html}</div>`;
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.body.appendChild(overlay);
+  activeModal = overlay;
+}
 
-    // Combo milestones
-    if (tapCount % 10 === 0) {
-      megaMessage();
-      screenFlash();
-    }
-    if (tapCount === 50) {
-      megaMessage();
-      document.body.style.animation = 'none';
-      document.body.style.background = 'linear-gradient(135deg, #ff0844, #ffb199, #ff6b9d, #c471f5)';
-      document.body.style.backgroundSize = '400% 400%';
-      setTimeout(() => {
-        document.body.style.animation = 'gradientShift 4s ease infinite';
-      }, 50);
-    }
-    if (tapCount === 100) {
-      // ULTRA MODE
-      document.title = '💖💖💖 HANNAH I LOVE YOU 💖💖💖';
-      for (let i = 0; i < 50; i++) {
-        setTimeout(() => {
-          burstEmojis(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-        }, i * 50);
+function closeModal() {
+  if (activeModal) { activeModal.remove(); activeModal = null; }
+}
+
+// ===== MAIN MENU =====
+function openMenu() {
+  openModal(`
+    <h2>Fun Zone 🎮</h2>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="game-btn" onclick="startCatchGame()">💖 Catch the Hearts</button>
+    <button class="game-btn" onclick="startMemoryGame()">🧠 Emoji Memory Match</button>
+    <button class="game-btn" onclick="startQuiz()">📝 How Well Do You Know Us?</button>
+    <button class="game-btn" onclick="startWheel()">🎡 Spin the Love Wheel</button>
+    <button class="game-btn" onclick="startLoveLetter()">💌 Random Love Letter</button>
+    <button class="game-btn" onclick="startComplimentGenerator()">✨ Compliment Generator</button>
+    <button class="game-btn" onclick="startWordScramble()">🔤 Unscramble the Love</button>
+    <button class="game-btn secondary" onclick="closeModal()">Back to tapping 👆</button>
+  `);
+}
+
+// ===== 1. CATCH THE HEARTS GAME =====
+function startCatchGame() {
+  closeModal();
+  let score = 0;
+  let missed = 0;
+  let gameOver = false;
+  const duration = 20000;
+  const hearts = [];
+
+  const scoreEl = document.createElement('div');
+  scoreEl.className = 'catch-score';
+  scoreEl.innerHTML = `Catch the hearts!<br>💖 0 | 💔 0`;
+  document.body.appendChild(scoreEl);
+
+  activeModal = { remove: () => {
+    gameOver = true;
+    scoreEl.remove();
+    hearts.forEach(h => h.remove());
+  }};
+
+  function spawnCatchHeart() {
+    if (gameOver) return;
+    const h = document.createElement('div');
+    h.className = 'catch-heart';
+    const isBomb = Math.random() < 0.15;
+    h.textContent = isBomb ? '💔' : ['💖','💗','💕','💝','🩷'][Math.floor(Math.random()*5)];
+    h.dataset.bomb = isBomb;
+    h.style.left = (Math.random() * (W() - 50) + 10) + 'px';
+    const speed = Math.random() * 2 + 2.5;
+    h.style.animationDuration = speed + 's';
+    hearts.push(h);
+
+    const clickHandler = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isBomb) {
+        missed += 3;
+        screenFlash();
+        megaMessage("OUCH! 💔");
+      } else {
+        score++;
+        burstEmojis(e.clientX || e.touches?.[0]?.clientX || W()/2, e.clientY || e.touches?.[0]?.clientY || H()/2);
       }
-    }
+      scoreEl.innerHTML = `Catch the hearts!<br>💖 ${score} | 💔 ${missed}`;
+      h.remove();
+    };
+    h.addEventListener('touchstart', clickHandler, { passive: false });
+    h.addEventListener('click', clickHandler);
 
-    clearTimeout(comboTimer);
-    comboTimer = setTimeout(() => {
-      tapCount = 0;
-      comboEl.textContent = '💖 x 0';
-      loveLevel = Math.max(0, loveLevel - 10);
-      loveFill.style.width = loveLevel + '%';
-    }, 3000);
+    document.body.appendChild(h);
+    setTimeout(() => {
+      if (h.parentNode && !isBomb) { missed++; scoreEl.innerHTML = `Catch the hearts!<br>💖 ${score} | 💔 ${missed}`; }
+      h.remove();
+    }, speed * 1000);
   }
 
-  function handleTap(x, y) {
-    burstEmojis(x, y);
-    createSparkles(x, y, 12);
-    updateCombo();
+  const spawnInterval = setInterval(() => { if (!gameOver) spawnCatchHeart(); }, 600);
 
-    if (tapCount % 2 === 0 || Math.random() > 0.5) {
-      showMessage(x, y);
+  setTimeout(() => {
+    gameOver = true;
+    clearInterval(spawnInterval);
+    hearts.forEach(h => h.remove());
+    scoreEl.remove();
+    activeModal = null;
+
+    const rating = score >= 20 ? "LOVE MASTER 👑" : score >= 12 ? "Heart Catcher 💕" : score >= 5 ? "Needs More Love Practice 😘" : "Just Here For The Vibes 🦋";
+    openModal(`
+      <h2>Game Over!</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <p style="text-align:center;font-size:clamp(1rem,3vw,1.3rem);margin:15px 0">
+        You caught <strong>${score}</strong> hearts!<br>
+        You missed <strong>${missed}</strong><br><br>
+        Rating: <strong>${rating}</strong>
+      </p>
+      <button class="game-btn" onclick="startCatchGame()">Play Again 🔄</button>
+      <button class="game-btn secondary" onclick="openMenu()">Back to Menu</button>
+    `);
+    if (score >= 12) {
+      for (let i = 0; i < 20; i++) setTimeout(() => burstEmojis(Math.random()*W(), Math.random()*H()), i*50);
     }
+  }, duration);
+}
 
-    const hint = document.getElementById('tap-hint');
-    if (hint) hint.style.display = 'none';
-  }
+// ===== 2. EMOJI MEMORY MATCH =====
+function startMemoryGame() {
+  const pairs = ['💖','🥰','🦋','🌹','🧸','✨','🍓','🎀'];
+  const deck = [...pairs, ...pairs].sort(() => Math.random() - 0.5);
+  let flipped = [];
+  let matched = 0;
+  let moves = 0;
+  let locked = false;
 
-  // Touch support (primary on mobile)
-  document.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    for (const touch of e.changedTouches) {
-      handleTap(touch.clientX, touch.clientY);
-    }
-  }, { passive: false });
-
-  // Click fallback for desktop
-  document.addEventListener('click', (e) => {
-    handleTap(e.clientX, e.clientY);
+  let html = `<h2>Memory Match 🧠</h2><button class="modal-close" onclick="closeModal()">✕</button>
+    <p style="text-align:center" id="mm-status">Moves: 0 | Matched: 0/${pairs.length}</p>
+    <div class="puzzle-grid" style="grid-template-columns:repeat(4,1fr)">`;
+  deck.forEach((emoji, i) => {
+    html += `<div class="puzzle-tile" data-idx="${i}" data-emoji="${emoji}" onclick="flipTile(this)">?</div>`;
   });
+  html += `</div>`;
+  openModal(html);
+}
 
-  // ===== KONAMI CODE: up up down down left right left right b a =====
-  const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-  let konamiIndex = 0;
-  document.addEventListener('keydown', (e) => {
-    if (e.keyCode === konamiCode[konamiIndex]) {
-      konamiIndex++;
-      if (konamiIndex === konamiCode.length) {
-        konamiIndex = 0;
-        // ULTRA SECRET MODE
-        for (let i = 0; i < 200; i++) {
-          setTimeout(() => {
-            burstEmojis(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-          }, i * 20);
-        }
-        const mega = document.createElement('div');
-        mega.className = 'mega-text';
-        mega.textContent = '🔓 SECRET: INFINITE LOVE UNLOCKED';
-        document.body.appendChild(mega);
-        setTimeout(() => mega.remove(), 3000);
+window.flipTile = function(el) {
+  if (el.classList.contains('flipped') || el.classList.contains('matched')) return;
+  const tiles = document.querySelectorAll('.puzzle-tile');
+  const flipped = [...tiles].filter(t => t.classList.contains('flipped') && !t.classList.contains('matched'));
+  if (flipped.length >= 2) return;
+
+  el.classList.add('flipped');
+  el.textContent = el.dataset.emoji;
+
+  const nowFlipped = [...tiles].filter(t => t.classList.contains('flipped') && !t.classList.contains('matched'));
+  if (nowFlipped.length === 2) {
+    const status = document.getElementById('mm-status');
+    let moves = parseInt(status.dataset.moves || 0) + 1;
+    status.dataset.moves = moves;
+
+    if (nowFlipped[0].dataset.emoji === nowFlipped[1].dataset.emoji) {
+      nowFlipped.forEach(t => t.classList.add('matched'));
+      const matchCount = [...tiles].filter(t => t.classList.contains('matched')).length / 2;
+      status.textContent = `Moves: ${moves} | Matched: ${matchCount}/8`;
+      if (matchCount === 8) {
+        setTimeout(() => {
+          const rating = moves <= 12 ? "GENIUS 🧠✨" : moves <= 18 ? "Pretty Smart 😏" : "You tried your best 💖";
+          closeModal();
+          openModal(`
+            <h2>You did it! 🎉</h2>
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <p style="text-align:center;font-size:clamp(1rem,3vw,1.3rem);margin:15px 0">
+              Completed in <strong>${moves}</strong> moves!<br><br>
+              Rating: <strong>${rating}</strong>
+            </p>
+            <button class="game-btn" onclick="startMemoryGame()">Play Again 🔄</button>
+            <button class="game-btn secondary" onclick="openMenu()">Back to Menu</button>
+          `);
+          for (let i = 0; i < 15; i++) setTimeout(() => burstEmojis(Math.random()*W(), Math.random()*H()), i*60);
+        }, 600);
       }
     } else {
-      konamiIndex = 0;
+      status.textContent = `Moves: ${moves} | Matched: ${[...tiles].filter(t=>t.classList.contains('matched')).length/2}/8`;
+      setTimeout(() => {
+        nowFlipped.forEach(t => { t.classList.remove('flipped'); t.textContent = '?'; });
+      }, 800);
     }
+  }
+};
+
+// ===== 3. QUIZ =====
+function startQuiz() {
+  const questions = [
+    { q: "What's Hannah's superpower?", opts: ["Being ridiculously cute","Making me smile 24/7","Both of the above","All of the above and more"], correct: 3 },
+    { q: "How much do I love Hannah?", opts: ["A lot","More than pizza","More than sleep","It's literally immeasurable"], correct: 3 },
+    { q: "Hannah is ___", opts: ["Pretty","Smart","Funny","All of the above obviously"], correct: 3 },
+    { q: "What happens when Hannah smiles?", opts: ["Birds start singing","Flowers bloom","My heart explodes","The whole world gets brighter"], correct: 2 },
+    { q: "Our love is like...", opts: ["A never-ending movie","WiFi - invisible but essential","A playlist on repeat","The sun - warm and constant"], correct: 1 },
+    { q: "If Hannah was a season she'd be...", opts: ["Spring (everything blooms)","Summer (hot obviously)","Fall (cozy vibes)","She's all seasons tbh"], correct: 3 },
+  ];
+
+  let current = 0;
+  let score = 0;
+
+  function showQuestion() {
+    const q = questions[current];
+    let optsHtml = q.opts.map((o, i) =>
+      `<button class="quiz-option" onclick="answerQuiz(${i}, ${q.correct})">${o}</button>`
+    ).join('');
+    openModal(`
+      <h2>Love Quiz 📝</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <p style="text-align:center;margin-bottom:5px;font-size:clamp(0.7rem,2vw,0.85rem);color:#ccc">Question ${current+1}/${questions.length}</p>
+      <p style="text-align:center;margin-bottom:15px;font-weight:700">${q.q}</p>
+      ${optsHtml}
+    `);
+  }
+
+  window.answerQuiz = function(chosen, correct) {
+    const btns = document.querySelectorAll('.quiz-option');
+    btns.forEach((b, i) => {
+      b.style.pointerEvents = 'none';
+      if (i === correct) b.classList.add('correct');
+      if (i === chosen && chosen !== correct) b.classList.add('wrong');
+    });
+    if (chosen === correct) score++;
+
+    setTimeout(() => {
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        const pct = Math.round(score / questions.length * 100);
+        const rating = pct === 100 ? "PERFECT SCORE! You really know us 💕" : pct >= 66 ? "Not bad! You're getting there 😘" : "Hmm... pay more attention to Hannah! 😤";
+        closeModal();
+        openModal(`
+          <h2>Quiz Results! 📊</h2>
+          <button class="modal-close" onclick="closeModal()">✕</button>
+          <p style="text-align:center;font-size:clamp(1rem,3vw,1.3rem);margin:15px 0">
+            Score: <strong>${score}/${questions.length}</strong> (${pct}%)<br><br>
+            ${rating}
+          </p>
+          <button class="game-btn" onclick="startQuiz()">Try Again 🔄</button>
+          <button class="game-btn secondary" onclick="openMenu()">Back to Menu</button>
+        `);
+        if (pct === 100) for (let i = 0; i < 20; i++) setTimeout(() => burstEmojis(Math.random()*W(), Math.random()*H()), i*50);
+      }
+    }, 1200);
+  };
+
+  showQuestion();
+}
+
+// ===== 4. SPIN THE LOVE WHEEL =====
+function startWheel() {
+  const prizes = [
+    { text: "10 Kisses 💋", color: "#ff6b9d" },
+    { text: "Big Hug 🤗", color: "#fbc2eb" },
+    { text: "Movie Night 🎬", color: "#a18cd1" },
+    { text: "Surprise Date 🌹", color: "#ff9a9e" },
+    { text: "Breakfast in Bed 🥞", color: "#fad0c4" },
+    { text: "Love Letter 💌", color: "#fed6e3" },
+    { text: "Ice Cream Trip 🍦", color: "#fbc2eb" },
+    { text: "Forehead Kisses 😚", color: "#ff6b9d" },
+  ];
+
+  openModal(`
+    <h2>Love Wheel 🎡</h2>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="wheel-container">
+      <div class="wheel-pointer">▼</div>
+      <canvas class="wheel-canvas" id="wheelCanvas" width="520" height="520"></canvas>
+    </div>
+    <div class="wheel-result" id="wheelResult">Tap the wheel to spin!</div>
+    <button class="game-btn" id="spinBtn" onclick="spinWheel()">SPIN! 🎰</button>
+    <button class="game-btn secondary" onclick="openMenu()">Back to Menu</button>
+  `);
+
+  const canvas = document.getElementById('wheelCanvas');
+  const ctx = canvas.getContext('2d');
+  const cx = 260, cy = 260, r = 250;
+  const sliceAngle = (Math.PI * 2) / prizes.length;
+
+  // Draw wheel
+  prizes.forEach((p, i) => {
+    const start = sliceAngle * i - Math.PI / 2;
+    const end = start + sliceAngle;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, start, end);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Text
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(start + sliceAngle / 2);
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 18px Comic Neue, cursive';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    // Split text for better fit
+    const words = p.text.split(' ');
+    if (words.length > 2) {
+      ctx.fillText(words.slice(0, 2).join(' '), r * 0.6, -8);
+      ctx.fillText(words.slice(2).join(' '), r * 0.6, 12);
+    } else {
+      ctx.fillText(p.text, r * 0.6, 0);
+    }
+    ctx.restore();
   });
 
-  // ===== AUTO LOVE RAIN =====
-  setInterval(() => {
-    if (Math.random() > 0.7 && MESSAGES.length > 0) {
-      const msg = document.createElement('div');
-      msg.className = 'love-message';
-      msg.textContent = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
-      msg.style.left = Math.random() * (window.innerWidth - 200) + 'px';
-      msg.style.top = Math.random() * (window.innerHeight - 100) + 'px';
-      msg.style.color = `hsl(${Math.random() * 20 + 340}, 100%, ${Math.random() * 10 + 82}%)`;
-      msg.style.fontSize = '1rem';
-      msg.style.opacity = '0.7';
-      document.body.appendChild(msg);
-      setTimeout(() => msg.remove(), 3000);
-    }
-  }, 5000);
+  let spinning = false;
+  window.spinWheel = function() {
+    if (spinning) return;
+    spinning = true;
+    document.getElementById('spinBtn').style.opacity = '0.5';
+    const extraSpins = Math.floor(Math.random() * 3 + 4) * 360;
+    const landAngle = Math.random() * 360;
+    const totalRotation = extraSpins + landAngle;
 
-  // ===== TITLE EASTER EGG =====
-  const titles = [
-    'I Love You Hannah 💕',
-    'Hannah Is The Best 💖',
-    'ur so cute omg 🥰',
-    'hannah appreciation page 🌹',
-    'certified soulmate zone 💫',
-    'no cap I love you fr fr 💗',
+    canvas.style.transform = `rotate(${totalRotation}deg)`;
+
+    setTimeout(() => {
+      const normalizedAngle = landAngle % 360;
+      const idx = Math.floor(((360 - normalizedAngle + 90) % 360) / (360 / prizes.length)) % prizes.length;
+      const result = prizes[idx];
+      document.getElementById('wheelResult').textContent = `You won: ${result.text}`;
+      screenFlash();
+      megaMessage(result.text);
+      spinning = false;
+      document.getElementById('spinBtn').style.opacity = '1';
+    }, 3200);
+  };
+}
+
+// ===== 5. LOVE LETTER =====
+function startLoveLetter() {
+  const letter = LOVE_LETTERS[Math.floor(Math.random() * LOVE_LETTERS.length)];
+  openModal(`
+    <h2>Love Letter 💌</h2>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="love-letter">${letter.replace(/\n/g, '<br>')}</div>
+    <button class="game-btn" onclick="startLoveLetter()">Another Letter 💌</button>
+    <button class="game-btn secondary" onclick="openMenu()">Back to Menu</button>
+  `);
+}
+
+// ===== 6. COMPLIMENT GENERATOR =====
+function startComplimentGenerator() {
+  const starters = ["Hannah,","Excuse me ma'am,","Breaking news:","Dear gorgeous,","Attention:","Fun fact:","Scientific discovery:","Alert:"];
+  const middles = [
+    "you are literally the most beautiful person",
+    "your smile could power a whole city",
+    "you are way too cute for this planet",
+    "being near you is my favorite thing",
+    "you are the definition of perfection",
+    "your laugh is my favorite sound",
+    "you are basically a real-life angel",
+    "your eyes make stars jealous",
+    "you are unreasonably adorable",
   ];
-  let titleIndex = 0;
-  setInterval(() => {
-    titleIndex = (titleIndex + 1) % titles.length;
-    document.getElementById('title').querySelector('h1').textContent = titles[titleIndex];
-  }, 6000);
+  const enders = [
+    "and I love you forever.","and it's honestly not fair to everyone else.","and I'm the luckiest person alive.",
+    "and that's just science.","and I will never stop telling you.","and my heart can barely handle it.",
+    "and you should probably be illegal.","and the world is better because of you.",
+  ];
 
-  // Love meter slowly decays
-  setInterval(() => {
-    if (loveLevel > 0) {
-      loveLevel = Math.max(0, loveLevel - 0.5);
-      loveFill.style.width = loveLevel + '%';
+  function generate() {
+    const s = starters[Math.floor(Math.random()*starters.length)];
+    const m = middles[Math.floor(Math.random()*middles.length)];
+    const e = enders[Math.floor(Math.random()*enders.length)];
+    return `${s} ${m} ${e}`;
+  }
+
+  openModal(`
+    <h2>Compliment Generator ✨</h2>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="love-letter" id="compliment-text" style="text-align:center;font-size:clamp(0.9rem,3vw,1.2rem)">${generate()}</div>
+    <button class="game-btn" onclick="document.getElementById('compliment-text').textContent='${generate().replace(/'/g,"\\'")}'; this.onclick=function(){document.getElementById('compliment-text').textContent=generateCompliment();}">Generate Another ✨</button>
+    <button class="game-btn secondary" onclick="openMenu()">Back to Menu</button>
+  `);
+
+  // Fix the button to actually regenerate
+  window.generateCompliment = generate;
+  const btn = activeModal.querySelector('.game-btn');
+  btn.onclick = () => { document.getElementById('compliment-text').textContent = generate(); };
+}
+
+// ===== 7. WORD SCRAMBLE =====
+function startWordScramble() {
+  const words = [
+    { word: "BEAUTIFUL", hint: "What Hannah is 💕" },
+    { word: "SOULMATE", hint: "What we are 💖" },
+    { word: "FOREVER", hint: "How long I'll love you" },
+    { word: "ADORABLE", hint: "Hannah's middle name (not really)" },
+    { word: "PERFECT", hint: "Describes Hannah" },
+    { word: "GORGEOUS", hint: "What I see when I look at you" },
+    { word: "SWEETHEART", hint: "What you are to me" },
+    { word: "LOVEYOU", hint: "What I always say (2 words)" },
+    { word: "KISSES", hint: "What I wanna give you rn" },
+    { word: "CUDDLES", hint: "Best activity with you" },
+  ];
+
+  let currentWord = words[Math.floor(Math.random() * words.length)];
+  let scrambled = currentWord.word.split('').sort(() => Math.random() - 0.5).join('');
+  // Make sure it's actually scrambled
+  while (scrambled === currentWord.word) scrambled = currentWord.word.split('').sort(() => Math.random() - 0.5).join('');
+
+  let solved = 0;
+
+  function showScramble() {
+    currentWord = words[Math.floor(Math.random() * words.length)];
+    scrambled = currentWord.word.split('').sort(() => Math.random() - 0.5).join('');
+    while (scrambled === currentWord.word) scrambled = currentWord.word.split('').sort(() => Math.random() - 0.5).join('');
+
+    openModal(`
+      <h2>Unscramble! 🔤</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <p style="text-align:center;margin:10px 0;color:#aaa;font-size:clamp(0.7rem,2vw,0.85rem)">Solved: ${solved}</p>
+      <p style="text-align:center;font-family:'Pacifico',cursive;font-size:clamp(1.5rem,5vw,2.5rem);color:#ff6b9d;letter-spacing:4px;margin:15px 0">${scrambled}</p>
+      <p style="text-align:center;color:#aaa;font-size:clamp(0.75rem,2vw,0.9rem)">Hint: ${currentWord.hint}</p>
+      <div style="margin:15px 0;display:flex;gap:8px">
+        <input type="text" id="scramble-input" placeholder="Your answer..."
+          style="flex:1;padding:12px;border-radius:14px;border:2px solid rgba(255,105,180,0.3);font-family:'Comic Neue',cursive;font-size:1rem;outline:none;text-transform:uppercase;text-align:center"
+          onkeydown="if(event.key==='Enter')checkScramble()">
+        <button onclick="checkScramble()" style="padding:12px 18px;border-radius:14px;border:none;background:linear-gradient(135deg,#ff9a9e,#fbc2eb);color:#fff;font-size:1.2rem;cursor:pointer">✓</button>
+      </div>
+      <div id="scramble-result" style="text-align:center;min-height:1.5em;font-weight:700"></div>
+      <button class="game-btn secondary" style="margin-top:10px" onclick="showScrambleHeavyHint()">I Give Up 😅</button>
+      <button class="game-btn secondary" onclick="openMenu()">Back to Menu</button>
+    `);
+    setTimeout(() => document.getElementById('scramble-input')?.focus(), 300);
+  }
+
+  window.checkScramble = function() {
+    const input = document.getElementById('scramble-input');
+    const result = document.getElementById('scramble-result');
+    if (!input || !result) return;
+    const answer = input.value.trim().toUpperCase().replace(/\s/g, '');
+    if (answer === currentWord.word) {
+      result.textContent = "CORRECT!! 🎉💖";
+      result.style.color = '#28a745';
+      solved++;
+      screenFlash();
+      burstEmojis(W()/2, H()/2);
+      setTimeout(showScramble, 1500);
+    } else {
+      result.textContent = "Nope! Try again 😘";
+      result.style.color = '#dc3545';
+      input.value = '';
+      input.focus();
     }
-  }, 500);
+  };
+
+  window.showScrambleHeavyHint = function() {
+    const result = document.getElementById('scramble-result');
+    if (result) {
+      result.textContent = `It's "${currentWord.word}" 😉`;
+      result.style.color = '#ff6b9d';
+      setTimeout(showScramble, 2000);
+    }
+  };
+
+  showScramble();
+}
+
+// ===== SHAKE TO LOVE (MOBILE) =====
+if (window.DeviceMotionEvent) {
+  let lastShake = 0;
+  window.addEventListener('devicemotion', (e) => {
+    const acc = e.accelerationIncludingGravity;
+    if (!acc) return;
+    const force = Math.abs(acc.x) + Math.abs(acc.y) + Math.abs(acc.z);
+    if (force > 35 && Date.now() - lastShake > 2000) {
+      lastShake = Date.now();
+      megaMessage("SHAKE = MORE LOVE 📱💕");
+      for (let i = 0; i < 15; i++) {
+        setTimeout(() => burstEmojis(Math.random()*W(), Math.random()*H()), i * 40);
+      }
+    }
+  });
+}
+
+// ===== KONAMI CODE =====
+const konamiCode = [38,38,40,40,37,39,37,39,66,65];
+let konamiIdx = 0;
+document.addEventListener('keydown', (e) => {
+  if (e.keyCode === konamiCode[konamiIdx]) {
+    konamiIdx++;
+    if (konamiIdx === konamiCode.length) {
+      konamiIdx = 0;
+      for (let i = 0; i < 150; i++) setTimeout(() => burstEmojis(Math.random()*W(), Math.random()*H()), i*20);
+      megaMessage("SECRET: INFINITE LOVE 🔓");
+    }
+  } else { konamiIdx = 0; }
+});
 </script>
 </body>
 </html>
